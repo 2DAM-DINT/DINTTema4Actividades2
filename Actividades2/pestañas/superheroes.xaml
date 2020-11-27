@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Actividades2.pestañas.superheroes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Actividades2.pestañas"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             Background="PaleGreen">
+    <UserControl.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation"
+                    Value="Horizontal" />
+        </Style>
+        <Style TargetType="Image"
+               x:Key="flechas">
+            <Setter Property="Width"
+                    Value="30" />
+        </Style>
+        <Style TargetType="Image"
+               x:Key="imagenAvengers">
+            <Setter Property="Width"
+                    Value="40" />
+        </Style>
+        <Style TargetType="Image"
+               x:Key="imagenXmen">
+            <Setter Property="Width"
+                    Value="60" />
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="titulo">
+            <Setter Property="FontFamily"
+                    Value="Arial Rounded MT Bold" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin"
+                    Value="0,10" />
+            <Setter Property="FontSize"
+                    Value="30" />
+        </Style>
+    </UserControl.Resources>
+
+    <DockPanel Margin="10">
+        <DockPanel DockPanel.Dock="Top"
+                   LastChildFill="False">
+            <TextBlock x:Name="nombreHeroe"
+                       Style="{StaticResource titulo}" />
+            <StackPanel DockPanel.Dock="Right"
+                        x:Name="logosHeroe" />
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,0">
+            <Image Source="/recursos/arrow.png"
+                   Width="30" />
+            <TextBlock x:Name="contadorImagen"
+                       Text="0/0"
+                       FontSize="20"
+                       Margin="5,0" />
+            <Image Source="/recursos/arrow.png"
+                   Width="30"
+                   RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="180" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </StackPanel>
+        <Image x:Name="imagen"
+               Stretch="UniformToFill"/>
+    </DockPanel>
+</UserControl>
