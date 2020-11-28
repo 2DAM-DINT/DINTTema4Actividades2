@@ -4,14 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Actividades2"
+        xmlns:pestañas="clr-namespace:Actividades2.pestañas"
         mc:Ignorable="d"
-        Title="Superheroes" 
-        Height="450" 
-        Width="800"
-        MinHeight="450"
-        MinWidth="800"
+        Title="Superheroes"
+        Height="700"
+        Width="1000"
+        MinHeight="700"
+        MinWidth="1000"
         Icon="./recursos/shield.ico">
-    <Grid>
-        
+    <Grid Margin="10">
+        <TabControl>
+            <TabItem Header="Ver superhéroes">
+                <pestañas:superheroes></pestañas:superheroes>
+            </TabItem>
+            <TabItem Header="Nuevo superhéroe">
+                <pestañas:crearSuperheroe></pestañas:crearSuperheroe>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -4,10 +4,139 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Actividades2.pestañas"
+             xmlns:heroe="clr-namespace:Actividades2"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="White">
-    <Grid>
+    <UserControl.Resources>
+        <heroe:Superheroe x:Key="superheroe"></heroe:Superheroe>
         
+        <Style TargetType="Border"
+               x:Key="selectores">
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="2" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="Padding"
+                    Value="4" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Width"
+                    Value="100" />
+            <Setter Property="Margin"
+                    Value="2,0" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+
+        <Style x:Key="info"
+               TargetType="Image">
+            <Setter Property="Source"
+                    Value="/recursos/info.png" />
+            <Setter Property="Width"
+                    Value="20" />
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid Margin="10"
+          DataContext="{StaticResource superheroe}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Nombre del superhéroe" />
+                <Image Style="{StaticResource info}" />
+            </StackPanel>
+            <TextBox x:Name="nombreHeroe"
+                     Margin="0,3,0,10"
+                     Text="{Binding Path=Nombre}" />
+            <StackPanel Margin="0,0,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Imagen" />
+                    <Image Style="{StaticResource info}" />
+                </StackPanel>
+                <TextBox x:Name="imagenHeroe"
+                         Margin="0,3,0,10"
+                         Text="{Binding Path=Imagen}" />
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Style="{StaticResource selectores}"
+                        Margin="0,0,4,0">
+                    <StackPanel>
+                        <RadioButton Content="Héroe"
+                                     x:Name="heroeRadioButton"
+                                     GroupName="tipoPersonaje"
+                                     IsChecked="{Binding Path=Heroe}" />
+                        <RadioButton Content="Villano"
+                                     x:Name="villanoRadioButton"
+                                     GroupName="tipoPersonaje"
+                                     IsChecked="{Binding Path=Villano}" />
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource selectores}"
+                        Grid.Column="2"
+                        Margin="4,0,0,0">
+                    <StackPanel>
+                        <CheckBox Content="Vengadores"
+                                  x:Name="vengadoresCheckBox"
+                                  IsChecked="{Binding Path=Vengador}" />
+                        <CheckBox Content="X-men"
+                                  x:Name="xmenCheckBox"
+                                  IsChecked="{Binding Path=Xmen}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,20">
+                <Button Content="Aceptar"
+                        Click="Aceptar_Click"/>
+                <Button Content="Limpiar"
+                        Click="Limpiar_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <Border Grid.Column="2"
+                BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="5"
+                Background="AntiqueWhite"
+                Margin="10,2,10,10">
+            <Image x:Name="imagenPersonajeNuevo"
+                   Stretch="Uniform"
+                   Source="{Binding ElementName=imagenHeroe, Path=Text, UpdateSourceTrigger=PropertyChanged}"/>
+        </Border>
     </Grid>
 </UserControl>

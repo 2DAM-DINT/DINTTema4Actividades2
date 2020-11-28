@@ -15,14 +15,36 @@ using System.Windows.Shapes;
 
 namespace Actividades2.pestañas
 {
-    /// <summary>
-    /// Lógica de interacción para crearSuperheroe.xaml
-    /// </summary>
     public partial class crearSuperheroe : UserControl
     {
         public crearSuperheroe()
         {
             InitializeComponent();
+            heroeRadioButton.IsChecked = true;
+        }
+
+        private void limpiar()
+        {
+            nombreHeroe.Text = "";
+            imagenHeroe.Text = "";
+            imagenPersonajeNuevo.Source = null;
+            heroeRadioButton.IsChecked = true;
+            vengadoresCheckBox.IsChecked = false;
+            xmenCheckBox.IsChecked = false;
+        }
+
+        private void Limpiar_Click(object sender, RoutedEventArgs e)
+        {
+            limpiar();
+        }
+
+        private void Aceptar_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = (System.Windows.Application.Current.MainWindow as MainWindow);
+            mainWindow.Superheroes.Add(Resources["superheroe"] as Superheroe);
+            MessageBox.Show("Superhéroe insertado con exito\n" + Resources["superheroe"],
+                "Superhéroes", MessageBoxButton.OK, MessageBoxImage.Information);
+            limpiar();
         }
     }
 }

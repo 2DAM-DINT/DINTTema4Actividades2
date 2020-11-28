@@ -1,11 +1,32 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Actividades2
 {
-    class Superheroe
+    public class Superheroe : INotifyPropertyChanged
     {
-        public string Nombre { get; set; }
-        public string Imagen { get; set; }
+        private string nombre;
+        public string Nombre
+        {
+            get { return nombre; }
+            set
+            {
+                nombre = value;
+                this.NotifyPropertyChanged("Nombre");
+            }
+        }
+
+        private string imagen;
+        public string Imagen
+        {
+            get { return imagen; }
+            set
+            {
+                imagen = value;
+                this.NotifyPropertyChanged("Imagen");
+            }
+        }
+
         public bool Vengador { get; set; }
         public bool Xmen { get; set; }
         public bool Heroe { get; set; }
@@ -25,6 +46,13 @@ namespace Actividades2
             Villano = villano;
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public static List<Superheroe> GetSamples()
         {
             List<Superheroe> ejemplos = new List<Superheroe>();
@@ -38,6 +66,11 @@ namespace Actividades2
             ejemplos.Add(spiderman);
 
             return ejemplos;
+        }
+
+        public override string ToString()
+        {
+            return $"{Nombre}\n{Imagen}\n{Vengador}\n{Xmen}\n{Heroe}\n{Villano}";
         }
     }
 }
