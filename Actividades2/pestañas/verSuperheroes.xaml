@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Actividades2.pestañas.superheroes"
+﻿<UserControl x:Class="Actividades2.pestañas.VerSuperheroes"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,11 +7,11 @@
              xmlns:heroe="clr-namespace:Actividades2"
              mc:Ignorable="d"
              d:DesignHeight="450"
-             d:DesignWidth="800"
-             x:Name="contenedorPrincipal">
+             d:DesignWidth="800">
     <UserControl.Resources>
-        <heroe:Superheroe x:Key="superheroe"></heroe:Superheroe>
-
+        <heroe:AfiliacionConverter x:Key="converter"></heroe:AfiliacionConverter>
+        <heroe:FondoConverter x:Key="fondoConverter"></heroe:FondoConverter>
+        
         <Style TargetType="StackPanel">
             <Setter Property="Orientation"
                     Value="Horizontal" />
@@ -55,11 +55,14 @@
             </Setter>
             <Setter Property="FontSize"
                     Value="40" />
+            <Setter Property="Margin"
+                    Value="0,0,0,10" />
         </Style>
     </UserControl.Resources>
 
-    <DockPanel Margin="10"
-               DataContext="{StaticResource superheroe}">
+    <DockPanel x:Name="contenedorPrincipal"
+               Margin="10"
+               Background="{Binding Path=Heroe, Converter={StaticResource fondoConverter}}">
         <DockPanel DockPanel.Dock="Top"
                    LastChildFill="False">
             <TextBlock x:Name="nombreHeroe"
@@ -67,7 +70,11 @@
                        Text="{Binding Path=Nombre}"/>
             <StackPanel DockPanel.Dock="Right"
                         x:Name="logosHeroe">
-                
+
+                <Image Style="{StaticResource imagenAvengers}"
+                       Visibility="{Binding Path=Vengador, Converter={StaticResource converter}}"/>
+                <Image Style="{StaticResource imagenXmen}"
+                       Visibility="{Binding Path=Xmen, Converter={StaticResource converter}}" />
             </StackPanel>
         </DockPanel>
         <StackPanel DockPanel.Dock="Bottom"

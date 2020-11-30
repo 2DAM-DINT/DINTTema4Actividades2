@@ -11,8 +11,11 @@ namespace Actividades2
             get { return nombre; }
             set
             {
-                nombre = value;
-                this.NotifyPropertyChanged("Nombre");
+                if (value != nombre)
+                {
+                    nombre = value;
+                    this.NotifyPropertyChanged("Nombre");
+                }
             }
         }
 
@@ -22,18 +25,80 @@ namespace Actividades2
             get { return imagen; }
             set
             {
-                imagen = value;
-                this.NotifyPropertyChanged("Imagen");
+                if (value != imagen)
+                {
+                    imagen = value;
+                    this.NotifyPropertyChanged("Imagen");
+                }
             }
         }
 
-        public bool Vengador { get; set; }
-        public bool Xmen { get; set; }
-        public bool Heroe { get; set; }
-        public bool Villano { get; set; }
+        private bool vengador;
+        public bool Vengador
+        {
+            get { return vengador; }
+            set
+            {
+                if (value != vengador)
+                {
+                    vengador = value;
+                    this.NotifyPropertyChanged("Vengador");
+                }
+            }
+        }
+
+        private bool xmen;
+        public bool Xmen
+        {
+            get { return xmen; }
+            set
+            {
+                if (value != xmen)
+                {
+                    xmen = value;
+                    this.NotifyPropertyChanged("Xmen");
+                }
+            }
+        }
+
+
+        private bool heroe;
+        public bool Heroe 
+        {
+            get { return heroe; }
+            set
+            {
+                if (value != heroe)
+                {
+                    heroe = value;
+                    this.NotifyPropertyChanged("Heroe");
+                }
+            }
+        }
+
+
+        private bool villano;
+        public bool Villano
+        {
+            get { return villano; }
+            set
+            {
+                if (value != villano)
+                {
+                    villano = value;
+                    this.NotifyPropertyChanged("Villano");
+                    if (Villano)
+                    {
+                        Vengador = false;
+                        Xmen = false;
+                    }
+                }
+            }
+        }
 
         public Superheroe()
         {
+            Heroe = true;
         }
 
         public Superheroe(string nombre, string imagen, bool vengador, bool xmen, bool heroe, bool villano)
@@ -66,11 +131,6 @@ namespace Actividades2
             ejemplos.Add(spiderman);
 
             return ejemplos;
-        }
-
-        public override string ToString()
-        {
-            return $"{Nombre}\n{Imagen}\n{Vengador}\n{Xmen}\n{Heroe}\n{Villano}";
         }
     }
 }

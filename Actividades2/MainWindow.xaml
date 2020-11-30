@@ -15,10 +15,10 @@
     <Grid Margin="10">
         <TabControl>
             <TabItem Header="Ver superhéroes">
-                <pestañas:superheroes></pestañas:superheroes>
+                <pestañas:VerSuperheroes x:Name="verSuperheroes"></pestañas:VerSuperheroes>
             </TabItem>
             <TabItem Header="Nuevo superhéroe">
-                <pestañas:crearSuperheroe></pestañas:crearSuperheroe>
+                <pestañas:CrearSuperheroe x:Name="verSuperheroes"></pestañas:CrearSuperheroe>
             </TabItem>
         </TabControl>
     </Grid>

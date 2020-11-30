@@ -66,6 +66,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="clases\FondoConverter.cs" />
+    <Compile Include="clases\AfiliacionConverter.cs" />
     <Compile Include="clases\Superheroe.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -75,7 +77,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pestañas\superheroes.xaml">
+    <Page Include="pestañas\verSuperheroes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,8 +86,8 @@
     <Compile Include="pestañas\crearSuperheroe.xaml.cs">
       <DependentUpon>crearSuperheroe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pestañas\superheroes.xaml.cs">
-      <DependentUpon>superheroes.xaml</DependentUpon>
+    <Compile Include="pestañas\verSuperheroes.xaml.cs">
+      <DependentUpon>verSuperheroes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
