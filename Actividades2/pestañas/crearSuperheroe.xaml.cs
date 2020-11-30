@@ -39,8 +39,6 @@ namespace Actividades2.pestañas
                             MessageBoxImage.Information);
 
             limpiar();
-
-            mainWindow.Resources["verSuperheroes"] as VerSuperheroes;
         }
     }
 }

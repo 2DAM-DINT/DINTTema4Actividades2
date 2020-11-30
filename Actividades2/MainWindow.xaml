@@ -18,7 +18,7 @@
                 <pestañas:VerSuperheroes x:Name="verSuperheroes"></pestañas:VerSuperheroes>
             </TabItem>
             <TabItem Header="Nuevo superhéroe">
-                <pestañas:CrearSuperheroe x:Name="verSuperheroes"></pestañas:CrearSuperheroe>
+                <pestañas:CrearSuperheroe x:Name="crearSuperheroes"></pestañas:CrearSuperheroe>
             </TabItem>
         </TabControl>
     </Grid>

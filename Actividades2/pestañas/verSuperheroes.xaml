@@ -56,7 +56,7 @@
             <Setter Property="FontSize"
                     Value="40" />
             <Setter Property="Margin"
-                    Value="0,0,0,10" />
+                    Value="5,10" />
         </Style>
     </UserControl.Resources>
 
