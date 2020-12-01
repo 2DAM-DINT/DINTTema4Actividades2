@@ -24,14 +24,14 @@ namespace Actividades2.pestañas
             Posicion = 0;
             Superheroes = (System.Windows.Application.Current.MainWindow as MainWindow).Superheroes;
 
-            MuestraHeroe(Posicion);
+            MuestraHeroe();
         }
 
-        private void MuestraHeroe(int posicion)
+        public void MuestraHeroe()
         {
-            contenedorPrincipal.DataContext = Superheroes[posicion];
+            contenedorPrincipal.DataContext = Superheroes[Posicion];
 
-            contadorImagen.Text = $"{posicion + 1}/{SuperHeroesLength}";
+            contadorImagen.Text = $"{Posicion + 1}/{SuperHeroesLength}";
         }
         
         private void Izquierda_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -40,7 +40,7 @@ namespace Actividades2.pestañas
             if (Posicion > 0)
             {
                 Posicion--;
-                MuestraHeroe(Posicion);
+                MuestraHeroe();
             }   
         }
 
@@ -50,7 +50,7 @@ namespace Actividades2.pestañas
             if (Posicion < SuperHeroesLength - 1)
             {
                 Posicion++;
-                MuestraHeroe(Posicion);
+                MuestraHeroe();
             }
         }
     }

@@ -14,31 +14,32 @@ namespace Actividades2.pestañas
             contenedorPrincipal.DataContext = Superheroe;
         }
 
-        private void limpiar()
+        private void Limpiar()
         {
-            nombreHeroe.Text = "";
-            imagenHeroe.Text = "";
-            imagenPersonajeNuevo.Source = null;
-            heroeRadioButton.IsChecked = true;
-            vengadoresCheckBox.IsChecked = false;
-            xmenCheckBox.IsChecked = false;
+            Superheroe.Nombre = "";
+            Superheroe.Imagen = "";
+            Superheroe.Heroe = true;
+            Superheroe.Villano = false;
+            Superheroe.Vengador = false;
+            Superheroe.Xmen = false;
         }
 
         private void Limpiar_Click(object sender, RoutedEventArgs e)
         {
-            limpiar();
+            Limpiar();
         }
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = (System.Windows.Application.Current.MainWindow as MainWindow);
-            mainWindow.Superheroes.Add(Superheroe);
+            mainWindow.Superheroes.Add(new Superheroe(Superheroe));
+            mainWindow.verSuperheroes.MuestraHeroe();
 
             MessageBox.Show("Superhéroe insertado con exito",
                             "Superhéroes", MessageBoxButton.OK, 
                             MessageBoxImage.Information);
 
-            limpiar();
+            Limpiar();
         }
     }
 }

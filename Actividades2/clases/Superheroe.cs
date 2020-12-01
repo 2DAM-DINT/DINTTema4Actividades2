@@ -111,6 +111,16 @@ namespace Actividades2
             Villano = villano;
         }
 
+        public Superheroe(Superheroe superheroe)
+        {
+            Nombre = superheroe.Nombre;
+            Imagen = superheroe.Imagen;
+            Vengador = superheroe.Vengador;
+            Xmen = superheroe.Xmen;
+            Heroe = superheroe.Heroe;
+            Villano = superheroe.Villano;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged(string propertyName)
